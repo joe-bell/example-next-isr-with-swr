@@ -41,7 +41,7 @@ const PostEditPage: NextPage<Params> = ({ id, initialData }) => {
       </header>
 
       <form
-        className="space-y-4 mt-4"
+        className="space-y-4 mt-6"
         onSubmit={form.handleSubmit((formData) => {
           const updatedPost = {
             ...post,
@@ -92,8 +92,8 @@ const PostEditPage: NextPage<Params> = ({ id, initialData }) => {
           <button
             type="button"
             onClick={() => {
-              form.reset();
               router.back();
+              form.reset();
             }}
             className={styles.button.secondary}
           >
@@ -104,6 +104,13 @@ const PostEditPage: NextPage<Params> = ({ id, initialData }) => {
           </button>
         </div>
       </form>
+      <p className="text-sm mt-6 max-w-sm text-gray-600">
+        Any changes made to content will be saved to the cache, whilst static
+        pages (this post and the "Home" page) revalidate in the background.
+        <small className="block mt-1">
+          (in this example, content is only saved to the cache)
+        </small>
+      </p>
     </AppShell>
   );
 };

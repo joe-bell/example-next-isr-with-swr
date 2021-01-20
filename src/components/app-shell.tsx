@@ -17,7 +17,7 @@ export const AppShell: React.FC = ({ children }) => (
               </Link>
             </li>
             <li>
-              <button className={styles.button.github}>View Source</button>
+              <button className={styles.button.primary}>View Source</button>
             </li>
           </ul>
         </nav>
