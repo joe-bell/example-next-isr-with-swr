@@ -28,8 +28,8 @@ const Index: NextPage<Params> = ({ initialData }) => {
         Lightning fast static pages, kept up to date with ISR &amp; SWR
       </p>
       <p className="mt-8">
-        Any changes made to content will be saved to the cache, whilst static
-        pages revalidate in the background.
+        Visit a post and click "Edit". Any changes made to content will be saved
+        to the cache, whilst static pages revalidate in the background.
         <small className="block mt-1 text-gray-600">
           (in this example, content is only saved to the cache)
         </small>
@@ -44,7 +44,7 @@ const Index: NextPage<Params> = ({ initialData }) => {
       </p>
 
       <h2 className={`${styles.h2} mt-8`}>Posts</h2>
-      <ol className="list-decimal ml-5 mt-4 space-y-2">
+      <ol className="list-decimal ml-5 mt-4 space-y-1">
         {posts.map((post) => (
           <li key={post.id}>
             <Link href={`/post/${post.id}`}>
