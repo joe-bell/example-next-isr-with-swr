@@ -17,7 +17,12 @@ export const AppShell: React.FC = ({ children }) => (
               </Link>
             </li>
             <li>
-              <button className={styles.button.primary}>View Source</button>
+              <a
+                href="https://github.com/joe-bell/example-next-isr-with-swr"
+                className={styles.button.primary}
+              >
+                View Source
+              </a>
             </li>
           </ul>
         </nav>

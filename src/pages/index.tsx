@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
+import { config } from "@/config";
 import { AppShell } from "@/components/app-shell";
 import { useAllPosts } from "@/hooks/use-all-posts";
 import { getAllPosts, Post } from "@/lib/db";
@@ -21,12 +22,8 @@ const Index: NextPage<Params> = ({ initialData }) => {
 
   return (
     <AppShell>
-      <h1 className={styles.h1}>
-        Next.js Incremental Static Regeneration with SWR
-      </h1>
-      <p className="mt-1 text-gray-600">
-        Lightning fast static pages, kept up to date with ISR &amp; SWR
-      </p>
+      <h1 className={styles.h1}>{config.title}</h1>
+      <p className="mt-1 text-gray-600">{config.description}</p>
       <p className="mt-8">
         Visit a post and click "Edit". Any changes made to content will be saved
         to the cache, whilst static pages revalidate in the background.
