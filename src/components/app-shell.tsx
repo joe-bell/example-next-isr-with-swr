@@ -23,6 +23,6 @@ export const AppShell: React.FC = ({ children }) => (
         </nav>
       </div>
     </header>
-    <main className={`${styles.container} mt-6`}>{children}</main>
+    <main className={`${styles.container} mt-8`}>{children}</main>
   </React.Fragment>
 );

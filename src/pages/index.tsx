@@ -27,7 +27,7 @@ const Index: NextPage<Params> = ({ initialData }) => {
       <p className="mt-1 text-gray-600">
         Lightning fast static pages, kept up to date with ISR &amp; SWR
       </p>
-      <p className="mt-4">
+      <p className="mt-8">
         Any changes made to content will be saved to the cache, whilst static
         pages revalidate in the background.
         <small className="block mt-1 text-gray-600">
@@ -40,7 +40,7 @@ const Index: NextPage<Params> = ({ initialData }) => {
         </a>
       </p>
 
-      <h2 className={`${styles.h2} mt-6`}>Posts</h2>
+      <h2 className={`${styles.h2} mt-8`}>Posts</h2>
       <ol className="list-decimal ml-5 mt-2">
         {posts.map((post) => (
           <li key={post.id}>
