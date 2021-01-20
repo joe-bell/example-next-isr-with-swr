@@ -35,7 +35,10 @@ const Index: NextPage<Params> = ({ initialData }) => {
         </small>
       </p>
       <p className="mt-4">
-        <a className="text-blue-700" href="https://joebell.co.uk">
+        <a
+          className="text-blue-700"
+          href="https://joebell.co.uk/blog/updating-static-next-js-pages-instantly"
+        >
           Read the accompanying blog post
         </a>
       </p>

@@ -2,7 +2,7 @@
 
 > Lightning fast static pages, kept up to date with [ISR](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration) &amp; [SWR](https://swr.vercel.app)
 
-- 📝 [Read the blog post](https://joebell.co.uk.)
+- 📝 [Read the blog post](https://joebell.co.uk/blog/updating-static-next-js-pages-instantly)
 - 🖥️ [View the demo](https://example-next-isr-with-swr.vercel.app/)
 
 ## FYI
