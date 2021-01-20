@@ -8,6 +8,8 @@ export interface PostRes {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse<PostRes>) => {
+  res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
+
   try {
     const { id } = (req.query as unknown) as PostQuery;
 

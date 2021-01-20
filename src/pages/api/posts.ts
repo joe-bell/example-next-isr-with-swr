@@ -8,6 +8,8 @@ export interface PostsRes {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse<PostsRes>) => {
+  res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
+
   try {
     const posts = await getAllPosts();
 
