@@ -13,7 +13,6 @@ interface Params {
 }
 
 const PostPage: NextPage<Params> = ({ id, initialData }) => {
-  const router = useRouter();
   const { data, isLoading } = usePost({
     id,
     initialData,
@@ -24,7 +23,7 @@ const PostPage: NextPage<Params> = ({ id, initialData }) => {
   return (
     <AppShell>
       <header className="flex flex-col space-y-4">
-        <Link href={`/post/edit/${post.id}`}>
+        <Link href={`/post/edit/${post.id}`} replace>
           <a className={`${styles.button.secondary} text-right self-end`}>
             Edit
           </a>
