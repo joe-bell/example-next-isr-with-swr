@@ -21,9 +21,11 @@ const Index: NextPage<Params> = ({ initialData }) => {
 
   return (
     <AppShell>
-      <h1 className={styles.h1}>Next.js Static Pages with SWR</h1>
+      <h1 className={styles.h1}>
+        Next.js Incremental Static Regeneration with SWR
+      </h1>
       <p className="mt-1 text-gray-600">
-        Lightning fast static pages, kept up to date with SWR
+        Lightning fast static pages, kept up to date with ISR &amp; SWR
       </p>
       <p className="mt-4">
         Any changes made to content will be saved to the cache, whilst static
