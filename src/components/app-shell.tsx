@@ -11,7 +11,7 @@ export const AppShell: React.FC = ({ children }) => (
           <ul className="flex items-center justify-between">
             <li>
               <Link href="/">
-                <a className="text-base font-medium text-gray-500 hover:text-blue-700">
+                <a className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Home
                 </a>
               </Link>

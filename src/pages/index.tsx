@@ -36,7 +36,7 @@ const Index: NextPage<Params> = ({ initialData }) => {
       </p>
       <p className="mt-4">
         <a
-          className="text-blue-700"
+          className="underline"
           href="https://joebell.co.uk/blog/updating-static-next-js-pages-instantly"
         >
           Read the accompanying blog post
@@ -44,11 +44,11 @@ const Index: NextPage<Params> = ({ initialData }) => {
       </p>
 
       <h2 className={`${styles.h2} mt-8`}>Posts</h2>
-      <ol className="list-decimal ml-5 mt-2">
+      <ol className="list-decimal ml-5 mt-4 space-y-2">
         {posts.map((post) => (
           <li key={post.id}>
             <Link href={`/post/${post.id}`}>
-              <a>{post.title}</a>
+              <a className="underline">{post.title}</a>
             </Link>
           </li>
         ))}
