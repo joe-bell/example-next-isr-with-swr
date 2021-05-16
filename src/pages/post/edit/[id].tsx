@@ -69,8 +69,7 @@ const PostEditPage = ({
         <label className="block">
           <span className={styles.label}>Title</span>
           <input
-            ref={form.register}
-            name="title"
+            {...form.register("title")}
             type="text"
             className={styles.input}
           />
@@ -79,8 +78,7 @@ const PostEditPage = ({
         <label className="block">
           <span className={styles.label}>Content</span>
           <textarea
-            ref={form.register}
-            name="content"
+            {...form.register("content")}
             rows={6}
             className={styles.input}
           />
