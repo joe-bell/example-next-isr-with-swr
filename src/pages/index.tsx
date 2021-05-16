@@ -1,19 +1,15 @@
 import * as React from "react";
-import { NextPage, GetStaticProps } from "next";
+import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { config } from "@/config";
 import { AppShell } from "@/components/app-shell";
 import { useAllPosts } from "@/hooks/use-all-posts";
-import { getAllPosts, Post } from "@/lib/db";
+import { getAllPosts } from "@/lib/db";
 import { styles } from "@/styles";
 
-interface Params {
-  initialData: {
-    posts: Post[];
-  };
-}
-
-const Index: NextPage<Params> = ({ initialData }) => {
+const Index = ({
+  initialData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { data, isLoading } = useAllPosts({
     initialData,
   });
@@ -56,7 +52,7 @@ const Index: NextPage<Params> = ({ initialData }) => {
 
 export default Index;
 
-export const getStaticProps: GetStaticProps<Params> = async () => {
+export const getStaticProps = async () => {
   const posts = await getAllPosts();
 
   return {

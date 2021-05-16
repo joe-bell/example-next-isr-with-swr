@@ -1,21 +1,19 @@
 import * as React from "react";
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { AppShell } from "@/components/app-shell";
-import { usePost, UsePostProps } from "@/hooks/use-post";
+import { usePost } from "@/hooks/use-post";
 import { getAllPosts, getPost, Post } from "@/lib/db";
 import { styles } from "@/styles";
 import { useAllPosts } from "@/hooks/use-all-posts";
 
-interface Params {
-  id?: Post["id"];
-  initialData?: UsePostProps["initialData"];
-}
-
 interface FormInputs extends Post {}
 
-const PostEditPage: NextPage<Params> = ({ id, initialData }) => {
+const PostEditPage = ({
+  id,
+  initialData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const { data, isLoading, mutate } = usePost({
     id,
@@ -129,7 +127,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Params> = async (context) => {
+export const getStaticProps = async (context) => {
   const post = await getPost({
     id: context.params.id as string,
   });

@@ -1,18 +1,15 @@
 import * as React from "react";
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths, InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { AppShell } from "@/components/app-shell";
-import { usePost, UsePostProps } from "@/hooks/use-post";
-import { getAllPosts, getPost, Post } from "@/lib/db";
+import { usePost } from "@/hooks/use-post";
+import { getAllPosts, getPost } from "@/lib/db";
 import { styles } from "@/styles";
 
-interface Params {
-  id?: Post["id"];
-  initialData?: UsePostProps["initialData"];
-}
-
-const PostPage: NextPage<Params> = ({ id, initialData }) => {
+const PostPage = ({
+  id,
+  initialData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { data, isLoading } = usePost({
     id,
     initialData,
@@ -53,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: true };
 };
 
-export const getStaticProps: GetStaticProps<Params> = async (context) => {
+export const getStaticProps = async (context) => {
   const post = await getPost({
     id: context.params.id as string,
   });
