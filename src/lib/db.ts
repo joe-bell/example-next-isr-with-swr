@@ -8,7 +8,6 @@ export interface GetPostProps {
 
 export const getPost = async ({ id }: GetPostProps): Promise<Post> => {
   const post = dbPosts.find((post) => post.id === id);
-  // const recipeExtended = recipe ? await extendRecipe({ recipe, locale }) : null;
   return post;
 };
 

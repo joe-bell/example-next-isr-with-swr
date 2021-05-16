@@ -7,7 +7,7 @@ export interface PostsRes {
   error?: string;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<PostsRes>) => {
+export default async (_: NextApiRequest, res: NextApiResponse<PostsRes>) => {
   res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
 
   try {
