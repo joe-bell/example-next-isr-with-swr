@@ -1,9 +1,9 @@
-import useSWR, { ConfigInterface } from "swr";
+import useSWR, { SWRConfiguration } from "swr";
 import { PostsQuery, PostsRes } from "@/pages/api/posts";
 import { fetcher } from "@/utils/fetcher";
 
 export interface UseAllPostsProps
-  extends ConfigInterface,
+  extends SWRConfiguration,
     Partial<PostsQuery> {}
 
 export const useAllPosts = (config?: UseAllPostsProps) => {
