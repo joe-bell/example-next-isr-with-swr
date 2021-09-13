@@ -8,10 +8,11 @@ import { getAllPosts } from "@/lib/db";
 import { styles } from "@/styles";
 
 const Index = ({
-  initialData,
+  fallbackData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { data, isLoading } = useAllPosts({
-    initialData,
+    fallbackData,
+    revalidateOnMount: false,
   });
 
   const posts = !isLoading && data.posts;
@@ -56,7 +57,7 @@ export const getStaticProps = async () => {
   const posts = await getAllPosts();
 
   return {
-    props: { initialData: { posts } },
+    props: { fallbackData: { posts } },
     revalidate: 1,
   };
 };

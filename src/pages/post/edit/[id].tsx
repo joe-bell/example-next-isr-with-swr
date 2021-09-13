@@ -12,12 +12,13 @@ interface FormInputs extends Post {}
 
 const PostEditPage = ({
   id,
-  initialData,
+  fallbackData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const { data, isLoading, mutate } = usePost({
     id,
-    initialData,
+    fallbackData,
+    revalidateOnMount: false,
   });
   const { mutate: mutateAllPosts } = useAllPosts();
 
@@ -54,7 +55,7 @@ const PostEditPage = ({
           );
 
           mutateAllPosts((prevData) => {
-            const updatedPosts = prevData.posts.map((prevDataPost) =>
+            const updatedPosts = prevData?.posts.map((prevDataPost) =>
               prevDataPost.id === id ? updatedPost : prevDataPost
             );
 
@@ -139,7 +140,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       id: post.id,
-      initialData: {
+      fallbackData: {
         post,
       },
     },

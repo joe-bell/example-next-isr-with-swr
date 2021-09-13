@@ -8,11 +8,12 @@ import { styles } from "@/styles";
 
 const PostPage = ({
   id,
-  initialData,
+  fallbackData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { data, isLoading } = usePost({
     id,
-    initialData,
+    fallbackData,
+    revalidateOnMount: false,
   });
 
   const post = !isLoading && data.post;
@@ -64,7 +65,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       id: post.id,
-      initialData: {
+      fallbackData: {
         post,
       },
     },
